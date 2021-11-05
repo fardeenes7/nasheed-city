@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+    
+    <div class="container text-center mt-5">
+        {% load static %}
+        <img src="{% static 'images/404.svg' %}" alt="" width="40%">
+        <h3> Sorry! Not Found </h3>
+        <a href="/" class="btn btn-primary px-3">Go to Home</a>
+    </div>
+    
+{% endblock content %}

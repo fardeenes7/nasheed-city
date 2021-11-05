@@ -1,0 +1,76 @@
+{% extends "mods/base.html" %}
+{% block content %}
+{% load static %}
+
+      <!-- ========== tab components start ========== -->
+      <section class="tab-components">
+        <div class="container-fluid">
+          <!-- ========== title-wrapper start ========== -->
+          <div class="title-wrapper pt-30">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="title mb-30">
+                  <h2>Update Lyrics</h2>
+                </div>
+              </div>
+
+
+              <!-- end col -->
+            </div>
+            <!-- end row -->
+          </div>
+          <!-- ========== title-wrapper end ========== -->
+          
+          <!-- ========== form-elements-wrapper start ========== -->
+          <div class="form-elements-wrapper px-lg-5 mx-lg-5 w-lg-75">
+            <form method="POST">
+              {% csrf_token %}
+              {{ form.media }}
+              {{ form.as_p}}
+           
+                    
+                    <!-- end textarea -->
+                    <button type="submit" class="btn btn-primary px-auto">Submit</button>
+                  </form>
+                  </div>
+                <!-- end card -->
+                <!-- ======= input style end ======= -->
+
+                
+                <!-- ======= input style end ======= -->
+
+                
+              </div>
+              <!-- end col -->
+                <!-- ======= textarea style start ======= -->
+                
+                <!-- ======= textarea style end ======= -->
+
+                
+              </div>
+              <!-- end col -->
+            </div>
+            <!-- end row -->
+          </div>
+          <!-- ========== form-elements-wrapper end ========== -->
+        </div>
+        <!-- end container -->
+      </section>
+      <!-- ========== tab components end ========== -->
+
+      <!-- ========== footer start =========== -->
+      
+      <!-- ========== footer end =========== -->
+    </main>
+    <!-- ======== main-wrapper end =========== -->
+
+<script>
+  n =  new Date();
+  y = n.getFullYear();
+  m = n.getMonth() + 1;
+  d = n.getDate();
+  document.getElementById("id_date").value = y + "-" + m + "-" + d;
+  document.getElementById("id_user").value = "{{ request.user.id }}";
+</script>
+
+    {% endblock content %}

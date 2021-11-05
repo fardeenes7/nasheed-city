@@ -1,0 +1,106 @@
+{% extends "mods/base.html" %}
+{% block content %}
+{% load static %}
+      <!-- ========== table components start ========== -->
+      <section class="table-components">
+        <div class="container-fluid">
+          <!-- ========== title-wrapper start ========== -->
+          <div class="title-wrapper pt-30">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="title mb-30">
+                  <h2>Lyrics</h2>
+                </div>
+              </div>
+              <!-- end col -->
+              <div class="col-md-6">
+                <div class="breadcrumb-wrapper mb-30">
+                  <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item">
+                        <a href="{% url 'mods:home' %}">Dashboard</a>
+                      </li>
+                      <li class="breadcrumb-item active" aria-current="page">
+                        Tables
+                      </li>
+                    </ol>
+                  </nav>
+                </div>
+              </div>
+              <!-- end col -->
+            </div>
+            <!-- end row -->
+          </div>
+          <!-- ========== title-wrapper end ========== -->
+
+          <!-- ========== tables-wrapper start ========== -->
+          <div class="tables-wrapper">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="card-style mb-30">
+                  
+                  <div class="table-wrapper table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th><h6>Email</h6></th>
+                          <th><h6>Singer</h6></th>
+                          <th><h6>Language</h6></th>
+                          <th><h6>Edit</h6></th>
+                        </tr>
+                        <!-- end table row-->
+                      </thead>
+                      <tbody>
+                        {% for lyric in lyrics %}
+                        <tr>
+                          <td class="min-width">
+                            <div class="lead">
+                              <div class="lead-text">
+                                <p>{{ lyric.name }}</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td class="min-width">
+                            <p><a href="#0">{{ lyric.singer }}</a></p>
+                          </td>
+                          <td class="min-width" style="text-transform: capitalize;">
+                            <p>{{ lyric.language }}</p>
+                          </td>
+                          <td class="min-width">
+                            <p>UIdeck digital agency</p>
+                          </td>
+                          <td>
+                            <div class="action"><a href="{% url 'mods:edit' lyric.slug %}">
+                              <button class="text-danger">
+                                <i class="lni lni-pencil-alt"></i>
+                              </button>
+                            </a>
+                            </div>
+                          </td>
+                        </tr>
+                        <!-- end table row -->
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                    <!-- end table -->
+                  </div>
+                </div>
+                <!-- end card -->
+              </div>
+              <!-- end col -->
+            </div>
+            <!-- end row -->
+
+
+
+          </div>
+          <!-- ========== tables-wrapper end ========== -->
+        </div>
+        <!-- end container -->
+      </section>
+      <!-- ========== table components end ========== -->
+
+      <!-- ========== footer start =========== -->
+      
+      <!-- ========== footer end =========== -->
+      {% endblock content %}

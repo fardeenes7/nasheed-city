@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+{% load embed_video_tags %}
+<h1 class="text-center">Recently Uploaded Lyrics</h1>
+<div class="container-fluid px-5 d-flex align-content-start justify-content-around">
+     
+    {% for lyric in object_list %}
+        <div class="card lyric-item my-3" style="width: 18rem;">
+            <div class="card-img-top video-thumb">
+                {% video lyric.youtube_link '100% x 100%' %}
+                </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">{{ lyric.name }}</h5>
+              <p class="card-text mt-auto">Singer: {{ lyric.singer }}</p>
+              <a href="{% url 'lyrics:single_lyric' lyric.slug %}" class="align-self-auto btn btn-primary stretched-link">View Lyrics</a>
+            </div>
+          </div>
+ 
+    {% endfor %}
+</div>
+{% endblock content %}

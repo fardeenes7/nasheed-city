@@ -1,0 +1,10 @@
+<h5 class="fs-4 fw-bold">Latest Lyrics</h5>
+<br>
+{% for lyric in suggestion %}
+<a class="" href="{% url 'lyrics:single_lyric' lyric.slug %}"><p class="fs-6"><b>{{ lyric.name }}</b>
+    <br>
+    {{ lyric.singer }}
+    <br><br>
+</p>
+</a>
+{% endfor %}
