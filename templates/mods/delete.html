@@ -10,7 +10,7 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <h2>Update Lyrics</h2>
+                  <h2>Delete Lyrics: {{ lyric.name }}</h2>
                 </div>
               </div>
 
@@ -27,10 +27,11 @@
               {% csrf_token %}
               {{ form.media }}
               {{ form.as_p}}
-           
+                    <h6 class="my-4">Are you sure you want to delete the post?</h6>
                     
                     <!-- end textarea -->
-                    <button type="submit" class="btn btn-primary px-auto">Submit</button>
+                    <a href="{% url 'mods:home' %}" class="btn btn-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-danger px-auto">Delete</button>
                   </form>
                   </div>
                 <!-- end card -->
@@ -64,13 +65,5 @@
     </main>
     <!-- ======== main-wrapper end =========== -->
 
-<script>
-  n =  new Date();
-  y = n.getFullYear();
-  m = n.getMonth() + 1;
-  d = n.getDate();
-  //document.getElementById("id_date").value = y + "-" + m + "-" + d;
-  document.getElementById("id_user").value = "{{ request.user.id }}";
-</script>
 
     {% endblock content %}

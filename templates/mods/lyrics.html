@@ -13,21 +13,6 @@
                 </div>
               </div>
               <!-- end col -->
-              <div class="col-md-6">
-                <div class="breadcrumb-wrapper mb-30">
-                  <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                      <li class="breadcrumb-item">
-                        <a href="{% url 'mods:home' %}">Dashboard</a>
-                      </li>
-                      <li class="breadcrumb-item active" aria-current="page">
-                        Tables
-                      </li>
-                    </ol>
-                  </nav>
-                </div>
-              </div>
-              <!-- end col -->
             </div>
             <!-- end row -->
           </div>
@@ -47,6 +32,8 @@
                           <th><h6>Singer</h6></th>
                           <th><h6>Language</h6></th>
                           <th><h6>Edit</h6></th>
+                          <th><h6>Delete</h6></th>
+                          
                         </tr>
                         <!-- end table row-->
                       </thead>
@@ -66,13 +53,18 @@
                           <td class="min-width" style="text-transform: capitalize;">
                             <p>{{ lyric.language }}</p>
                           </td>
-                          <td class="min-width">
-                            <p>UIdeck digital agency</p>
-                          </td>
                           <td>
                             <div class="action"><a href="{% url 'mods:edit' lyric.slug %}">
-                              <button class="text-danger">
+                              <button class="text-info">
                                 <i class="lni lni-pencil-alt"></i>
+                              </button>
+                            </a>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="action"><a href="{% url 'mods:delete' lyric.slug %}">
+                              <button class="text-danger">
+                                <i class="lni lni-trash-can"></i>
                               </button>
                             </a>
                             </div>

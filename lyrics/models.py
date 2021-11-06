@@ -49,7 +49,7 @@ class Lyric(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('edit', args=(str(self.slug)))
+        return reverse('mods:home')
 
 class Blog(models.Model):
     title = models.CharField(max_length=100)

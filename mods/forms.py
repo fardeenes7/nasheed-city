@@ -7,12 +7,20 @@ from lyrics.models import Lyric, Profile
 class LyricForm(forms.ModelForm):
     class Meta:
         model = Lyric
-        fields = ('name', 'singer','youtube_link', 'date', 'lyrics', 'user')
-
+        fields = ('name', 'singer', 'language', 'youtube_link', 'date', 'lyrics', 'user')
+        CHOICES=[
+        ('arabic', 'Arabic'),
+        ('bangla', 'Bangla'),
+        ('english', 'English'),
+        ('urdu', 'Urdu'),
+        ('mixed', 'Mixed'),
+        ('other', 'Other')
+    ]
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control mb-3'}),
             'singer': forms.TextInput(attrs={'class': 'form-control mb-3'}),
             'youtube_link': forms.TextInput(attrs={'class': 'form-control mb-3'}),
+            'language' : forms.Select(attrs={'class': 'form-control mb-3'}),
             'date': forms.TextInput(attrs={'class': 'form-control mb-3'}),
             'lyrics': forms.Textarea(attrs={'class': 'form-control mb-3'}),
             'user': forms.TextInput(attrs={'class': 'form-control mb-3', 'readonly': 'readonly'}),

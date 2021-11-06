@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import LyricForm, ProfileForm
 from django.views.generic import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from django.urls import reverse_lazy
 
 
 # Create your views here.
@@ -31,7 +31,21 @@ class UpdateLyricView(LoginRequiredMixin, UpdateView):
         context['lyrics'] = Lyric.objects.filter(user=context['profile'])
 
         return context
-    
+
+class DeleteLyricView(LoginRequiredMixin, DeleteView):
+    model = Lyric
+    template_name = 'mods/delete.html'
+    form_class = LyricForm
+    success_url = reverse_lazy('mods:home')
+    #fields =  ['name', 'singer', 'lyrics', 'language', 'youtube_link', 'user']
+    def get_context_data(self, *args, **kwargs):
+        context = super(DeleteLyricView, self).get_context_data(*args, **kwargs)
+        context['profile'] = Profile.objects.filter(user=self.request.user)[0]
+        context['lyrics'] = Lyric.objects.filter(user=context['profile'])
+
+        return context
+
+
 
 
 class AddLyricView(LoginRequiredMixin, CreateView):

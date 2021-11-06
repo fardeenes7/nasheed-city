@@ -11,5 +11,7 @@ urlpatterns = [
     path('edit/<slug:slug>', UpdateLyricView.as_view(), name='edit'),
     path('create/', AddLyricView.as_view(), name='create'),
     path('profile/<int:pk>', ProfileView.as_view(), name='profile'),
+    path('delete/<slug:slug>', DeleteLyricView.as_view(), name='delete'),
+    
     
 ]
